@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" as="image" href="./assets/images/city.webp">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <aside>
+        <div class="challenge-1">1</div>
+        <div class="challenge-2">2</div>
+        <div class="challenge-3">3</div>
+        <div class="challenge-4">4</div>
+        <div class="challenge-5">5</div>
+        <div class="challenge-6">6</div>
+        <div class="challenge-7">7</div>
+        <div class="challenge-8">8</div>
+        <div class="challenge-9">9</div>
+        <div class="challenge-10">10</div>
+        <div class="challenge-11">-></div>
+    </aside>
+    <div class="rooftop"></div>
+
+    <script>
+        const aside = document.querySelector('aside');
+        let rowHeight = aside.clientHeight / 11;
+
+        function updateRowHeight() {
+            rowHeight = aside.clientHeight / 11;
+        }
+
+        if (document.startViewTransition) {
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    document.startViewTransition(() => updateRowHeight());
+                }, 100);
+            });
+        } else {
+            window.addEventListener('resize', updateRowHeight);
+        }
+
+        aside.querySelectorAll('[class^="challenge-"]').forEach(el => {
+            el.addEventListener('click', () => {
+
+                aside.querySelectorAll('[class^="challenge-"]').forEach(div => {
+                    div.style.backgroundImage = 'url("./assets/images/dark-window.webp")';
+                });
+                
+                const n = parseInt(el.textContent);
+                if (isNaN(n)) return;
+                aside.style.setProperty('--pos', ((n - 1) * rowHeight) + 'px');
+                el.style.backgroundImage = "url('./assets/images/light-window.webp')";
+            });
+        });
+    </script>
+</body>
+
+
+</html>
