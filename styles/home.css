@@ -52,7 +52,7 @@
         .bubbles-2 {
             position: absolute;
             z-index: 3;
-            inset: 0 35% 0 0;
+            inset: 5% 35% 0 2%;
             margin-left: 2rem;
 
             a {

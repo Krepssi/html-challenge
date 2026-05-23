@@ -26,9 +26,9 @@ const bubblesStyle = [
   { color: "#f48fb188", size: 215, x: 42, y: 64,  animation: "bubbleMove" },
   { color: "#29b6f688", size: 180, x: 60, y: 70,  animation: "bubbleMove2" },
   { color: "#ff704388", size: 250, x: 75,  y: 65,  animation: "bubbleMove3" },
-  { color: "#9ccc6588", size: 160, x: 90, y: 65,   animation: "bubbleMove" },
-  { color: "#ce93d888", size: 210, x: 100, y: 55,  animation: "bubbleMove2" },
-  { color: "#42a5f588", size: 175, x: 100, y: 75,  animation: "bubbleMove3" },
+  { color: "#9ccc6588", size: 160, x: 95, y: 65,   animation: "bubbleMove" },
+  { color: "#ce93d888", size: 210, x: 110, y: 55,  animation: "bubbleMove2" },
+  { color: "#42a5f588", size: 175, x: 105, y: 75,  animation: "bubbleMove3" },
 ];
 
 const bubblesIndex = document.querySelectorAll(".bubbles-2 a");
