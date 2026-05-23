@@ -11,7 +11,7 @@ function changeBackground() {
     const currentAnchor = document.querySelector(`.${classChallenge}`);
 
     if (!currentAnchor) return;
-    currentAnchor.style.backgroundImage = 'url("./assets/images/light-window.webp")';
+    currentAnchor.style.backgroundImage = 'url("../assets/images/light-window.webp")';
 }
 
 changeBackground();
