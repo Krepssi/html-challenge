@@ -38,14 +38,14 @@
                 width: 500px;
                 height: 500px;
                 background-image: url("../assets/images/balanced-girl.webp");
-                background-size: 500px 3000px;
-                animation: balanced 3s steps(6) infinite;
+                background-size: 500px 5000px;
+                animation: balanced 2.5s steps(10) infinite;
             }
         }
 
         @keyframes balanced {
             to {
-                background-position: 0px -3000px;
+                background-position: 0px -5000px;
             }
         }
 
