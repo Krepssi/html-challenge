@@ -8,7 +8,8 @@ function getCurrentPage() {
 
 function changeBackground() {
     const classChallenge = getCurrentPage();
-    const currentAnchor = document.querySelector(`.${classChallenge}`);
+    const currentAnchor = document.querySelector(`li:has(.${classChallenge})`);
+    console.log(currentAnchor);
 
     if (!currentAnchor) return;
     currentAnchor.style.backgroundImage = 'url("../assets/images/light-window.webp")';
