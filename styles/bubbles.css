@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../assets/fonts/Orbitron-VariableFont_wght.woff2') format('woff2');
+    font-weight: 400 900;
+    font-display: swap;
+}
+
+ body {
+            background-color: #1a1630;
+            background-image:
+                url("../assets/images/city.webp");
+            background-size: cover;
+            background-position: left center;
+            height: 100dvh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            view-transition-name: city-bg;
+            overflow: hidden;
+
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: 2;
+                width: 100%;
+                height: 100%;
+                background-image: url("../assets/images/rooftop-girl.webp");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                bottom: 100px;
+                z-index: 4;
+                width: 500px;
+                height: 500px;
+                background-image: url("../assets/images/balanced-girl.webp");
+                background-size: 500px 3000px;
+                animation: balanced 3s steps(6) infinite;
+            }
+        }
+
+        @keyframes balanced {
+            to {
+                background-position: 0px -3000px;
+            }
+        }
+
+        .bubbles-2 {
+            position: absolute;
+            z-index: 3;
+            inset: 0 35% 0 0;
+            margin-left: 2rem;
+
+            a {
+                text-align: center;
+                font-size: 5rem;
+                font-family: "Casual Memories";
+                display: grid;
+                place-items: center;
+                position: absolute;
+                color: #eb97ac86;
+                color: white;
+                border-radius: 50%;
+                backdrop-filter: blur(10px);
+                text-decoration: none;
+                z-index: 12;
+            }
+        }
+
+.title{
+    position: absolute;
+    top: 12%;
+    right: 1%;
+
+    width: min-content;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.2rem, 4.1vw, 5.5rem);
+    line-height: .9;
+
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    text-align: right;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffe0f5 35%,
+        #b7dcff 70%,
+        #fff0b3 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.8),
+        0 0 25px rgba(255,180,255,.5),
+        0 0 45px rgba(120,180,255,.35);
+
+    z-index: 1;
+
+    user-select: none;
+    pointer-events: none;
+
+    span{
+            font-size: clamp(3.2rem, 6.1vw, 6.5rem);
+
+    }
+}
+
+.title::after{
+    content: '';
+
+    position: absolute;
+    inset: -20px;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(255,255,255,.18),
+        transparent 70%
+      );
+
+    filter: blur(30px);
+
+    z-index: -1;
+}
+
+        @keyframes bubbleMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(8px, -12px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes bubbleMove2 {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-8px, 12px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes bubbleMove3 {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-8px, 0px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }

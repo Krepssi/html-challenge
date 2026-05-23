@@ -1,7 +1,29 @@
+ @property --current-challenge {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: false;
+}
+
+@property --new-challenge {
+    syntax: "<number>";
+    initial-value: 1;
+    inherits: false;
+}
+
+@view-transition {
+
+}
+
+:root {
+    background-color: #1f2032;
+    --current-position: calc(100dvh/11 * (var(--current-challenge) - 1));   
+    --position-challenge: calc(100dvh/11 * (var(--new-challenge) - 1));    
+}
+
 body{
     background-color: #1a1630;
     background-image: 
-    url("./assets/images/city.webp");
+    url("../assets/images/city.webp");
     background-size:  cover;
     background-position: left center;
     height: 100dvh;
@@ -17,7 +39,7 @@ body{
         z-index: 2;
         width: 100%;
         height: 100%;
-        background-image: url("./assets/images/rooftop.webp");
+        background-image: url("../assets/images/rooftop.webp");
         background-size: 100% 100%;
         background-position: left 265px;
         background-repeat: no-repeat;
@@ -36,10 +58,10 @@ aside{
     &::before{
         content: "";
         position: absolute;
-        translate: 11rem 0;
+        top: 0;
         z-index: 2;
         width: 150px;
-        height: calc(var(--pos) + 1rem);
+        height: calc(var(--current-position) + 2rem);
         background-image: linear-gradient(
             to right, 
             transparent 0%, 
@@ -52,36 +74,39 @@ aside{
         background-size: 100% 100%;
         background-position: left 0%;
         background-repeat: no-repeat;
-        transition: height 1s ease;
+        translate: 11.6rem 0px;
+        animation: resize 1s ease forwards;
     }
 
     &::after{
         content: "";
         position: absolute;
-        z-index: 2;
+        z-index: 22;
         width: 150px;
         height: 150px;
-        background-image: url("./assets/images/girl.webp");
+        background-image: url("../assets/images/girl.webp");
         background-size: 150px 900px;
         background-position: left 0px;
         background-repeat: no-repeat;
-        animation: climbRope 2.5s steps(6) infinite;
-
-        translate: 9.3rem var(--pos);
-        transition: translate 1s ease;
+        translate: 10rem var(--current-position);
+        animation: climbRope 2.5s steps(6) infinite,
+                   moveGirl 1s ease forwards;
+       
+        
     }
 
-        div {
-        background-image: url("./assets/images/dark-window.webp");
+        a, div {
+        background-image: url("../assets/images/dark-window.webp");
         background-size: 100% 100%;
         font-size: 3rem;
         padding: 1rem;
         padding-right: 7rem;
         font-family: "Casual Memories";
         text-align: center;
-        color: #a54d1f;
+        color: #ef8318;
         text-shadow: 0px 0px 10px #000,  0px 0px 30px #000, 0px 0px 40px #000, 0px 0px 50px #000,
         0px 0px 90px #fc8840, 0px 0px 100px #fc8840, 0px 0px 150px #fc8840;
+        text-decoration: none;
     }
 }
 
@@ -92,4 +117,22 @@ aside{
     }
 }
 
+@keyframes moveGirl {
+    0% {
+        translate:  10rem var(--current-position);
+    }
 
+    100% {
+        translate:  10rem var(--position-challenge);
+    }
+}
+
+@keyframes resize {
+    0% {
+        height: calc(var(--current-position) + 2rem);
+    }
+
+    100% {
+        height: calc(var(--position-challenge) + 2rem);
+    }
+}

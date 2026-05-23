@@ -6,59 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="preload" as="image" href="./assets/images/city.webp">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./styles/bubbles.css">
+
 </head>
 
 <body>
-    <aside>
-        <div class="challenge-1">1</div>
-        <div class="challenge-2">2</div>
-        <div class="challenge-3">3</div>
-        <div class="challenge-4">4</div>
-        <div class="challenge-5">5</div>
-        <div class="challenge-6">6</div>
-        <div class="challenge-7">7</div>
-        <div class="challenge-8">8</div>
-        <div class="challenge-9">9</div>
-        <div class="challenge-10">10</div>
-        <div class="challenge-11">-></div>
-    </aside>
-    <div class="rooftop"></div>
+    <canvas class="bubbles" width="2000" height="1000"></canvas>
 
-    <script>
-        const aside = document.querySelector('aside');
-        let rowHeight = aside.clientHeight / 11;
+    <h1 class="title"><span>HTML</span> Challenge</h1>
 
-        function updateRowHeight() {
-            rowHeight = aside.clientHeight / 11;
-        }
+    <div class="bubbles-2">
 
-        if (document.startViewTransition) {
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    document.startViewTransition(() => updateRowHeight());
-                }, 100);
-            });
-        } else {
-            window.addEventListener('resize', updateRowHeight);
-        }
+        <a href="./challenges/challenge-1.html">1</a>
+        <a href="./challenges/challenge-2.html">2</a>
+        <a href="./challenges/challenge-3.html">3</a>
+        <a href="./challenges/challenge-4.html">4</a>
+        <a href="./challenges/challenge-5.html">5</a>
+        <a href="./challenges/challenge-6.html">6</a>
+        <a href="./challenges/challenge-7.html">7</a>
+        <a href="./challenges/challenge-8.html">8</a>
+        <a href="./challenges/challenge-9.html">9</a>
+        <a href="./challenges/challenge-10.html">10</a>
+        <a href="./challenges/challenge-11.html">11</a>
+        <a href="./challenges/challenge-12.html">12</a>
+        <a href="./challenges/challenge-13.html">13</a>
+        <a href="./challenges/challenge-14.html">14</a>
+        <a href="./challenges/challenge-15.html">15</a>
+        <a href="./challenges/challenge-16.html">16</a>
+        <a href="./challenges/challenge-17.html">17</a>
+        <a href="./challenges/challenge-18.html">18</a>
+        <a href="./challenges/challenge-19.html">19</a>
+        <a href="./challenges/challenge-20.html">20</a>
+        <a href="./challenges/challenge-21.html">21</a>
+        <a href="./challenges/challenge-22.html">22</a>
+        <a href="./challenges/challenge-23.html">23</a>
+        <a href="./challenges/challenge-24.html">24</a>
+        <a href="./challenges/challenge-25.html">25</a>
+        <a href="./challenges/challenge-26.html">26</a>
+        <a href="./challenges/challenge-27.html">27</a>
+        <a href="./challenges/challenge-28.html">28</a>
+        <a href="./challenges/challenge-29.html">29</a>
+        <a href="./challenges/challenge-30.html">30</a>
+    </div>
 
-        aside.querySelectorAll('[class^="challenge-"]').forEach(el => {
-            el.addEventListener('click', () => {
 
-                aside.querySelectorAll('[class^="challenge-"]').forEach(div => {
-                    div.style.backgroundImage = 'url("./assets/images/dark-window.webp")';
-                });
-                
-                const n = parseInt(el.textContent);
-                if (isNaN(n)) return;
-                aside.style.setProperty('--pos', ((n - 1) * rowHeight) + 'px');
-                el.style.backgroundImage = "url('./assets/images/light-window.webp')";
-            });
-        });
-    </script>
+    <script src="./scripts/bubbles.js"></script>
+    <script src="./scripts/bubbles2.js"></script>
 </body>
 
 
