@@ -1,0 +1,150 @@
+ :host{
+     --current-position: calc(100dvh / 11 * (var(--current-challenge) - 1));
+    --position-challenge: calc(100dvh / 11 * (var(--new-challenge) - 1));
+
+    display: block;
+    width: 8.4rem;
+    background-color: rgba(255, 0, 0, 0.267);
+    position: relative;
+    z-index: 4;
+    height: 100dvh;
+ }
+ 
+aside{
+     --pos: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        width: 150px;
+        height: calc(var(--current-position) + 2rem);
+        background-image: linear-gradient(
+            to right, 
+            transparent 0%, 
+            transparent 30px, 
+            #4c2916 30px,
+             #4c2916 32px,
+                transparent 35px,
+                transparent 100%
+             );
+        background-size: 100% 100%;
+        background-position: left 0%;
+        background-repeat: no-repeat;
+        translate: 12.7rem 0px;
+        animation: resize 1s ease forwards;
+    }
+
+    ul{
+        list-style: none;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(11,1fr);
+        margin: 0;
+        padding: 0;
+
+         &::after{
+        content: "";
+        position: absolute;
+        z-index: 22;
+        width: 150px;
+        height: 150px;
+        background-image: url("../assets/images/girl.webp");
+        background-size: 150px 900px;
+        background-position: left 0px;
+        background-repeat: no-repeat;
+        left: 11rem;
+        translate: 0 var(--current-position);
+        animation: climbRope 2.5s steps(6) infinite,
+                   moveGirl 1s ease forwards;
+    }
+    }
+
+    li{
+        background-image: url("../assets/images/dark-window.webp");
+        background-size: 100% 100%;
+        font-size: 3rem;
+        padding-right: 4rem;
+        font-family: "Casual Memories";
+        color: #ef8318;
+        text-shadow: 0px 0px 10px #000,  0px 0px 30px #000, 0px 0px 40px #000, 0px 0px 50px #000,
+        0px 0px 90px #fc8840, 0px 0px 100px #fc8840, 0px 0px 150px #fc8840;
+        width: 100%;
+        display: grid;
+        place-items: center;   
+
+        a{
+        position: relative;
+        transition: transform 0.2s ease;
+        &:hover{
+            transform: scale(1.1);
+            z-index: 10;
+        }
+    }
+    }
+
+    li:has(.prev, .next){
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;   
+        gap: 10px;
+        background-image: url("../assets/images/windowless.webp");
+        background-size: 100% 100%;
+
+        a{
+           
+            display: block;
+            translate: 1.5rem;
+        }
+    }
+
+    a img{
+         width: 110%;
+        filter: 
+        drop-shadow(0px 0px 1px #000)
+        drop-shadow(0px 0px 1px #000000cc);
+    }
+
+    a.next img{
+        transform: rotateY(180deg);
+    }
+
+
+    li a{
+        text-decoration: none;
+                color: #ef8318;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@keyframes climbRope {
+    to{
+        background-position: left -900px;
+    }
+}
+
+@keyframes moveGirl {
+    0% {
+        translate:  0rem var(--current-position);
+    }
+
+    100% {
+        translate:  0rem var(--position-challenge);
+    }
+}
+
+@keyframes resize {
+    0% {
+        height: calc(var(--current-position) + 2rem);
+    }
+
+    100% {
+        height: calc(var(--position-challenge) + 2rem);
+    }
+}

@@ -9,7 +9,6 @@ function getCurrentPage() {
 function changeBackground() {
     const classChallenge = getCurrentPage();
     const currentAnchor = document.querySelector(`li:has(.${classChallenge})`);
-    console.log(currentAnchor);
 
     if (!currentAnchor) return;
     currentAnchor.style.backgroundImage = 'url("../assets/images/light-window.webp")';
@@ -34,8 +33,10 @@ const aside = document.querySelector('aside');
 
 aside.querySelectorAll('[class^="challenge-"]').forEach(el => {
     el.addEventListener('click', () => {
-        sessionStorage.currentChallenge = newChallenge;
-        sessionStorage.newChallenge = el.textContent;
+        const n = el.textContent;
+
+        sessionStorage.currentChallenge = newChallenge;      
+        sessionStorage.newChallenge = (n%10 !== 0)? String(n%10) : "10";
     });
 });
 

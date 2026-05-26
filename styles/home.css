@@ -11,6 +11,7 @@
                 url("../assets/images/city.webp");
             background-size: cover;
             background-position: left center;
+            background-repeat: no-repeat;
             height: 100dvh;
             margin: 0;
             padding: 0;
