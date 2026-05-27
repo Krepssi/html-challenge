@@ -97,7 +97,7 @@ aside{
         background-size: 100% 100%;
 
         a{
-           
+            width: 100%;
             display: block;
             translate: 1.5rem;
         }
