@@ -4,5 +4,6 @@ document.querySelectorAll('.bubbles-2 a').forEach(el => {
 
         sessionStorage.currentChallenge = -1;
         sessionStorage.newChallenge = (n%10 !== 0)? String(n%10) : "10";
+        
     });
 });

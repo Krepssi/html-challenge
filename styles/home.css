@@ -69,6 +69,7 @@
                 backdrop-filter: blur(10px);
                 text-decoration: none;
                 z-index: 12;
+                transition: transform 0.2s ease;
             }
         }
 
