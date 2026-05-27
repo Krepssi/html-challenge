@@ -21,7 +21,7 @@ class ChallengeInfo extends HTMLElement {
 
         this.shadowRoot.setHTMLUnsafe(/* html */`
             <main>
-                <div class="info">
+                <header class="info">
                     <div class="info-retos">
                         <h3>Superando los retos <span>❤</span></h3>
                         <p>Reto ${n} de 30</p>
@@ -34,10 +34,10 @@ class ChallengeInfo extends HTMLElement {
                         <h4>Consejo del día</h4>
                         <p>${advice}</p>
                     </div>
-                </div>
-                <div class="reto">
+                </header>
+                <section class="reto">
                     <slot></slot>
-                </div>
+                </section>
             </main>
         `);
     }
